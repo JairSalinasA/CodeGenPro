@@ -113,8 +113,7 @@
     <Compile Include="Forms\Form_Barras.Designer.cs">
       <DependentUpon>Form_Barras.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helps\BarCodeData.cs" />
-    <Compile Include="Helps\BarcodeManager.cs" />
+    <Compile Include="Helps\BarcodeData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\Form_Barras.resx">
