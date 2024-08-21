@@ -67,7 +67,7 @@ namespace CodeGenPro.Presentation.Forms
             btnForeColor.BackColor = ColorTranslator.FromHtml(_b.ForeColor.ToString());
 
 
-        }         
+        }
 
         #region Botones
 
@@ -260,6 +260,127 @@ namespace CodeGenPro.Presentation.Forms
 
         #endregion
 
+        //private void GenerateBarcode()
+        //{
+        //    errorProvider1.Clear();
+        //    var w = Convert.ToInt32(txtWidth.Text.Trim());
+        //    var h = Convert.ToInt32(txtHeight.Text.Trim());
+        //    _b.Alignment = AlignmentPositions.Center;
+
+        //    // Barcode alignment
+        //    switch (cbBarcodeAlign.SelectedItem.ToString().Trim().ToLower())
+        //    {
+        //        case "left": _b.Alignment = AlignmentPositions.Left; break;
+        //        case "right": _b.Alignment = AlignmentPositions.Right; break;
+        //        default: _b.Alignment = AlignmentPositions.Center; break;
+        //    }//switch
+
+        //    var type = GetTypeSelected();
+
+        //    try
+        //    {
+        //        if (type != Type.Unspecified)
+        //        {
+        //            try
+        //            {
+        //                _b.BarWidth = textBoxBarWidth.Text.Trim().Length < 1 ? (int?)null : Convert.ToInt32(textBoxBarWidth.Text.Trim());
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //                throw new Exception("Unable to parse BarWidth: " + ex.Message, ex);
+        //            }
+
+        //            try
+        //            {
+        //                _b.AspectRatio = textBoxAspectRatio.Text.Trim().Length < 1 ? (double?)null : Convert.ToDouble(textBoxAspectRatio.Text.Trim());
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //                throw new Exception("Unable to parse AspectRatio: " + ex.Message, ex);
+        //            }
+
+        //            _b.IncludeLabel = chkGenerateLabel.Checked;
+
+        //            if (!String.IsNullOrEmpty(textBox1.Text.Trim()))
+        //                _b.AlternateLabel = textBox1.Text;
+        //            else
+        //                _b.AlternateLabel = null;
+
+        //            //===== Encoding performed here =====
+        //            using (var skiaImage = _b.Encode(type, txtData.Text.Trim(), _b.ForeColor, _b.BackColor, w, h))
+        //            {
+        //                using (var skBitmap = SKBitmap.Decode(skiaImage.Encode().AsStream()))
+        //                {
+        //                    // Create a new bitmap with extra space for the label
+        //                    int extraHeight = 20; // Adjust this value for the space you need for the label
+        //                    using (var bitmapWithLabel = new SKBitmap(skBitmap.Width, skBitmap.Height + extraHeight))
+        //                    {
+        //                        using (var canvas = new SKCanvas(bitmapWithLabel))
+        //                        {
+        //                            // Draw the original barcode image onto the new bitmap
+        //                            canvas.DrawBitmap(skBitmap, new SKRect(0, extraHeight, skBitmap.Width, skBitmap.Height + extraHeight));
+
+        //                            // Draw the label text
+        //                            string labelText = chkGenerateLabel.Checked ? textBox1.Text.Trim() : "";
+        //                            if (!string.IsNullOrEmpty(labelText))
+        //                            {
+        //                                // Set up font and paint
+        //                                var labelPaint = new SKPaint
+        //                                {
+        //                                    Color = SKColors.Black, // Adjust the color as needed
+        //                                    TextSize = 12, // Adjust font size as needed
+        //                                    IsAntialias = true,
+        //                                    TextAlign = SKTextAlign.Center
+        //                                };
+
+        //                                // Measure the string to center it
+        //                                var textBounds = new SKRect();
+        //                                labelPaint.MeasureText(labelText, ref textBounds);
+        //                                var textPosition = new SKPoint(
+        //                                    skBitmap.Width / 2,
+        //                                    textBounds.Height // Position at the top
+        //                                );
+
+        //                                // Draw the text at the calculated position
+        //                                canvas.DrawText(labelText, textPosition, labelPaint);
+        //                            }
+        //                        }
+
+        //                        // Convert SKBitmap to System.Drawing.Image and set it as BackgroundImage
+        //                        SaveBarcodeImage(bitmapWithLabel);
+        //                    }
+        //                }
+        //            }
+        //            //===================================
+
+        //            // Show the encoding time
+        //            lblEncodingTime.Text = @"(" + Math.Round(_b.EncodingTime, 0, MidpointRounding.AwayFromZero) + @"ms)";
+        //            txtEncoded.Text = _b.EncodedValue; // Mantén el valor codificado sin cambios
+        //            tsslEncodedType.Text = @"Encoding Type: " + _b.EncodedType;
+
+        //            // Read dynamically calculated Width/Height because the user is interested.
+        //            if (_b.BarWidth.HasValue)
+        //                txtWidth.Text = _b.Width.ToString();
+        //            if (_b.AspectRatio.HasValue)
+        //                txtHeight.Text = _b.Height.ToString();
+        //        }//if
+
+        //        if (barcode != null)
+        //        {
+        //            barcode.Location = new Point(
+        //                (barcode.Parent.ClientSize.Width - barcode.Width) / 2,
+        //                (barcode.Parent.ClientSize.Height - barcode.Height) / 2);
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("Barcode control is not initialized.");
+        //        }
+        //    }//try
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }//catch
+        //}
         private void SaveBarcodeAsImage()
         {
             try
@@ -289,9 +410,143 @@ namespace CodeGenPro.Presentation.Forms
                 MessageBox.Show("Error saving image: " + ex.Message);
             }
         }
+        private void SaveBarcodeImage(SKBitmap bitmapWithLabel)
+        {
+            using (var image = SKImage.FromBitmap(bitmapWithLabel))
+            {
+                using (var imageStream = image.Encode())
+                {
+                    using (var ms = new MemoryStream(imageStream.ToArray()))
+                    {
+                        cc.BackgroundImage = Image.FromStream(ms);
+                    }
+                }
+            }
+        }
+        //private void GenerateBarcode()
+        //{
+        //    errorProvider1.Clear();
+
+        //    var w = Convert.ToInt32(txtWidth.Text.Trim());
+        //    var h = Convert.ToInt32(txtHeight.Text.Trim());
+        //    _b.Alignment = AlignmentPositions.Center;
+
+        //    // Barcode alignment
+        //    switch (cbBarcodeAlign.SelectedItem.ToString().Trim().ToLower())
+        //    {
+        //        case "left": _b.Alignment = AlignmentPositions.Left; break;
+        //        case "right": _b.Alignment = AlignmentPositions.Right; break;
+        //        default: _b.Alignment = AlignmentPositions.Center; break;
+        //    }
+
+        //    var type = GetTypeSelected();
+
+        //    try
+        //    {
+        //        if (type != Type.Unspecified)
+        //        {
+        //            try
+        //            {
+        //                _b.BarWidth = string.IsNullOrWhiteSpace(textBoxBarWidth.Text) ? (int?)null : Convert.ToInt32(textBoxBarWidth.Text.Trim());
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //                throw new Exception("Unable to parse BarWidth: " + ex.Message, ex);
+        //            }
+
+        //            try
+        //            {
+        //                _b.AspectRatio = string.IsNullOrWhiteSpace(textBoxAspectRatio.Text) ? (double?)null : Convert.ToDouble(textBoxAspectRatio.Text.Trim());
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //                throw new Exception("Unable to parse AspectRatio: " + ex.Message, ex);
+        //            }
+
+        //            _b.IncludeLabel = chkGenerateLabel.Checked;
+
+        //            // Store the values separately
+        //            string dataText = txtData.Text.Trim();
+        //            string labelText = chkGenerateLabel.Checked ? textBox1.Text.Trim() : "";
+
+        //            // Encoding performed here
+        //            using (var skiaImage = _b.Encode(type, dataText, _b.ForeColor, _b.BackColor, w, h))
+        //            {
+        //                using (var skBitmap = SKBitmap.Decode(skiaImage.Encode().AsStream()))
+        //                {
+        //                    // Create a new bitmap with extra space for the label
+        //                    int extraHeight = 20; // Adjust this value for the space you need for the label
+        //                    using (var bitmapWithLabel = new SKBitmap(skBitmap.Width, skBitmap.Height + extraHeight))
+        //                    {
+        //                        using (var canvas = new SKCanvas(bitmapWithLabel))
+        //                        {
+        //                            // Draw the original barcode image onto the new bitmap
+        //                            canvas.DrawBitmap(skBitmap, new SKRect(0, extraHeight, skBitmap.Width, skBitmap.Height + extraHeight));
+
+        //                            // Draw the label text
+        //                            if (!string.IsNullOrEmpty(labelText))
+        //                            {
+        //                                // Set up font and paint
+        //                                var labelPaint = new SKPaint
+        //                                {
+        //                                    Color = SKColors.Black,
+        //                                    TextSize = 12,
+        //                                    IsAntialias = true,
+        //                                    TextAlign = SKTextAlign.Center
+        //                                };
+
+        //                                // Measure the string to center it
+        //                                var textBounds = new SKRect();
+        //                                labelPaint.MeasureText(labelText, ref textBounds);
+        //                                var textPosition = new SKPoint(
+        //                                    skBitmap.Width / 2,
+        //                                    skBitmap.Height + (extraHeight / 2) // Position in the extra space
+        //                                );
+
+        //                                // Draw the text at the calculated position
+        //                                canvas.DrawText(labelText, textPosition, labelPaint);
+        //                            }
+        //                        }
+
+        //                        // Convert SKBitmap to System.Drawing.Image and set it as BackgroundImage
+        //                        SaveBarcodeImage(bitmapWithLabel);
+        //                    }
+        //                }
+        //            }
+
+        //            // Show the encoding time
+        //            lblEncodingTime.Text = @"(" + Math.Round(_b.EncodingTime, 0, MidpointRounding.AwayFromZero) + @"ms)";
+        //            txtEncoded.Text = _b.EncodedValue; // Keep the encoded value unchanged
+        //            tsslEncodedType.Text = @"Encoding Type: " + _b.EncodedType;
+
+        //            // Read dynamically calculated Width/Height
+        //            if (_b.BarWidth.HasValue)
+        //                txtWidth.Text = _b.Width.ToString();
+        //            if (_b.AspectRatio.HasValue)
+        //                txtHeight.Text = _b.Height.ToString();
+        //        }
+
+        //        if (barcode != null)
+        //        {
+        //            barcode.Location = new Point(
+        //                (barcode.Parent.ClientSize.Width - barcode.Width) / 2,
+        //                (barcode.Parent.ClientSize.Height - barcode.Height) / 2);
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("Barcode control is not initialized.");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+        //}
+
         private void GenerateBarcode()
         {
             errorProvider1.Clear();
+
             var w = Convert.ToInt32(txtWidth.Text.Trim());
             var h = Convert.ToInt32(txtHeight.Text.Trim());
             _b.Alignment = AlignmentPositions.Center;
@@ -302,7 +557,7 @@ namespace CodeGenPro.Presentation.Forms
                 case "left": _b.Alignment = AlignmentPositions.Left; break;
                 case "right": _b.Alignment = AlignmentPositions.Right; break;
                 default: _b.Alignment = AlignmentPositions.Center; break;
-            }//switch
+            }
 
             var type = GetTypeSelected();
 
@@ -312,7 +567,7 @@ namespace CodeGenPro.Presentation.Forms
                 {
                     try
                     {
-                        _b.BarWidth = textBoxBarWidth.Text.Trim().Length < 1 ? (int?)null : Convert.ToInt32(textBoxBarWidth.Text.Trim());
+                        _b.BarWidth = string.IsNullOrWhiteSpace(textBoxBarWidth.Text) ? (int?)null : Convert.ToInt32(textBoxBarWidth.Text.Trim());
                     }
                     catch (Exception ex)
                     {
@@ -321,7 +576,7 @@ namespace CodeGenPro.Presentation.Forms
 
                     try
                     {
-                        _b.AspectRatio = textBoxAspectRatio.Text.Trim().Length < 1 ? (double?)null : Convert.ToDouble(textBoxAspectRatio.Text.Trim());
+                        _b.AspectRatio = string.IsNullOrWhiteSpace(textBoxAspectRatio.Text) ? (double?)null : Convert.ToDouble(textBoxAspectRatio.Text.Trim());
                     }
                     catch (Exception ex)
                     {
@@ -330,34 +585,29 @@ namespace CodeGenPro.Presentation.Forms
 
                     _b.IncludeLabel = chkGenerateLabel.Checked;
 
-                    if (!String.IsNullOrEmpty(textBox1.Text.Trim()))
-                        _b.AlternateLabel = textBox1.Text;
-                    else
-                        _b.AlternateLabel = null;
+                    // Store the values separately
+                    string dataText = txtData.Text.Trim();
+                    string labelText = chkGenerateLabel.Checked ? textBox1.Text.Trim() : "";
 
-                    //===== Encoding performed here =====
-                    using (var skiaImage = _b.Encode(type, txtData.Text.Trim(), _b.ForeColor, _b.BackColor, w, h))
+                    // Encoding performed here
+                    using (var skiaImage = _b.Encode(type, dataText, _b.ForeColor, _b.BackColor, w, h))
                     {
                         using (var skBitmap = SKBitmap.Decode(skiaImage.Encode().AsStream()))
                         {
                             // Create a new bitmap with extra space for the label
-                            int extraHeight = 20; // Adjust this value for the space you need for the label
+                            int extraHeight = 20; // Increase this value for more space at the top
                             using (var bitmapWithLabel = new SKBitmap(skBitmap.Width, skBitmap.Height + extraHeight))
                             {
                                 using (var canvas = new SKCanvas(bitmapWithLabel))
                                 {
-                                    // Draw the original barcode image onto the new bitmap
-                                    canvas.DrawBitmap(skBitmap, new SKRect(0, extraHeight, skBitmap.Width, skBitmap.Height + extraHeight));
-
-                                    // Draw the label text
-                                    string labelText = textBox1.Text.Trim();
+                                    // Draw the label text at the top
                                     if (!string.IsNullOrEmpty(labelText))
                                     {
                                         // Set up font and paint
                                         var labelPaint = new SKPaint
                                         {
-                                            Color = SKColors.Black, // Adjust the color as needed
-                                            TextSize = 12, // Adjust font size as needed
+                                            Color = SKColors.Black,
+                                            TextSize = 12,
                                             IsAntialias = true,
                                             TextAlign = SKTextAlign.Center
                                         };
@@ -373,6 +623,9 @@ namespace CodeGenPro.Presentation.Forms
                                         // Draw the text at the calculated position
                                         canvas.DrawText(labelText, textPosition, labelPaint);
                                     }
+
+                                    // Draw the original barcode image onto the new bitmap
+                                    canvas.DrawBitmap(skBitmap, new SKRect(0, extraHeight, skBitmap.Width, skBitmap.Height + extraHeight));
                                 }
 
                                 // Convert SKBitmap to System.Drawing.Image and set it as BackgroundImage
@@ -380,19 +633,18 @@ namespace CodeGenPro.Presentation.Forms
                             }
                         }
                     }
-                    //===================================
 
                     // Show the encoding time
                     lblEncodingTime.Text = @"(" + Math.Round(_b.EncodingTime, 0, MidpointRounding.AwayFromZero) + @"ms)";
-                    txtEncoded.Text = _b.EncodedValue;
+                    txtEncoded.Text = _b.EncodedValue; // Keep the encoded value unchanged
                     tsslEncodedType.Text = @"Encoding Type: " + _b.EncodedType;
 
-                    // Read dynamically calculated Width/Height because the user is interested.
+                    // Read dynamically calculated Width/Height
                     if (_b.BarWidth.HasValue)
                         txtWidth.Text = _b.Width.ToString();
                     if (_b.AspectRatio.HasValue)
                         txtHeight.Text = _b.Height.ToString();
-                }//if
+                }
 
                 if (barcode != null)
                 {
@@ -404,25 +656,15 @@ namespace CodeGenPro.Presentation.Forms
                 {
                     MessageBox.Show("Barcode control is not initialized.");
                 }
-            }//try
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }//catch
-        }
-        private void SaveBarcodeImage(SKBitmap bitmapWithLabel)
-        {
-            using (var image = SKImage.FromBitmap(bitmapWithLabel))
-            {
-                using (var imageStream = image.Encode())
-                {
-                    using (var ms = new MemoryStream(imageStream.ToArray()))
-                    {
-                        cc.BackgroundImage = Image.FromStream(ms);
-                    }
-                }
             }
         }
+
+
+
 
     }
 }
