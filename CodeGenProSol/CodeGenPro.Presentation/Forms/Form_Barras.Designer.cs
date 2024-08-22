@@ -58,13 +58,16 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.chkIncludeImageInSavedData = new System.Windows.Forms.CheckBox();
             this.lblEncodingTime = new System.Windows.Forms.Label();
+            this.btnExportarMasivo = new FontAwesome.Sharp.IconButton();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.lblAverageGenerationTime = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.txtEncoded = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.iconButton6 = new FontAwesome.Sharp.IconButton();
+            this.btnPrint = new FontAwesome.Sharp.IconButton();
             this.btnGuardaImagen = new FontAwesome.Sharp.IconButton();
             this.LoadXML = new FontAwesome.Sharp.IconButton();
             this.btnLoadJSON = new FontAwesome.Sharp.IconButton();
@@ -72,33 +75,31 @@
             this.btnSaveJSON = new FontAwesome.Sharp.IconButton();
             this.btnEncode = new FontAwesome.Sharp.IconButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtData = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.cbBarcodeAlign = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbEncodeType = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.textBoxAspectRatio = new System.Windows.Forms.TextBox();
-            this.textBoxBarWidth = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtWidth = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtHeight = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.chkGenerateLabel = new System.Windows.Forms.CheckBox();
+            this.cbEncodeType = new System.Windows.Forms.ComboBox();
+            this.txtData = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.chkGenerateLabel = new System.Windows.Forms.CheckBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBoxAspectRatio = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBoxBarWidth = new System.Windows.Forms.TextBox();
+            this.txtHeight = new System.Windows.Forms.TextBox();
+            this.txtWidth = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.btnBackColor = new System.Windows.Forms.Button();
             this.btnForeColor = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.chkIncludeImageInSavedData = new System.Windows.Forms.CheckBox();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.stsInformation.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -107,6 +108,7 @@
             this.tableLayoutPanel4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -122,10 +124,10 @@
             this.tsslEncodedType,
             this.tslblLibraryVersion,
             this.stsAuthor});
-            this.stsInformation.Location = new System.Drawing.Point(0, 687);
+            this.stsInformation.Location = new System.Drawing.Point(0, 682);
             this.stsInformation.Name = "stsInformation";
             this.stsInformation.RenderMode = System.Windows.Forms.ToolStripRenderMode.ManagerRenderMode;
-            this.stsInformation.Size = new System.Drawing.Size(963, 22);
+            this.stsInformation.Size = new System.Drawing.Size(1067, 22);
             this.stsInformation.TabIndex = 0;
             this.stsInformation.Text = "statusStrip1";
             // 
@@ -138,7 +140,7 @@
             // tslblLibraryVersion
             // 
             this.tslblLibraryVersion.Name = "tslblLibraryVersion";
-            this.tslblLibraryVersion.Size = new System.Drawing.Size(674, 17);
+            this.tslblLibraryVersion.Size = new System.Drawing.Size(778, 17);
             this.tslblLibraryVersion.Spring = true;
             this.tslblLibraryVersion.Text = "     Version:";
             // 
@@ -156,7 +158,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(963, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1067, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -282,7 +284,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(957, 338);
+            this.panel1.Size = new System.Drawing.Size(1061, 335);
             this.panel1.TabIndex = 4;
             // 
             // cc
@@ -293,7 +295,7 @@
             this.cc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cc.Name = "cc";
             this.cc.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.cc.Size = new System.Drawing.Size(957, 338);
+            this.cc.Size = new System.Drawing.Size(1061, 335);
             this.cc.TabIndex = 37;
             this.cc.TabStop = false;
             this.cc.Text = "Codigo de barras";
@@ -310,7 +312,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.93906F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.06094F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(963, 663);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1067, 658);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // tableLayoutPanel4
@@ -318,19 +320,19 @@
             this.tableLayoutPanel4.ColumnCount = 4;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.27273F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.00418F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.2581F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.36984F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.04504F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.78608F));
             this.tableLayoutPanel4.Controls.Add(this.groupBox5, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel2, 3, 0);
             this.tableLayoutPanel4.Controls.Add(this.groupBox2, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.groupBox4, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 347);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 344);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(957, 313);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1061, 311);
             this.tableLayoutPanel4.TabIndex = 6;
             // 
             // groupBox5
@@ -338,30 +340,53 @@
             this.groupBox5.Controls.Add(this.groupBox1);
             this.groupBox5.Controls.Add(this.txtEncoded);
             this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox5.Location = new System.Drawing.Point(532, 3);
+            this.groupBox5.Location = new System.Drawing.Point(588, 3);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(274, 307);
+            this.groupBox5.Size = new System.Drawing.Size(291, 305);
             this.groupBox5.TabIndex = 22;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Valor codificado";
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.numericUpDown1);
             this.groupBox1.Controls.Add(this.chkIncludeImageInSavedData);
             this.groupBox1.Controls.Add(this.lblEncodingTime);
-            this.groupBox1.Controls.Add(this.iconButton1);
+            this.groupBox1.Controls.Add(this.btnExportarMasivo);
             this.groupBox1.Controls.Add(this.progressBar1);
             this.groupBox1.Controls.Add(this.lblAverageGenerationTime);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox1.Location = new System.Drawing.Point(3, 146);
+            this.groupBox1.Location = new System.Drawing.Point(3, 144);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(268, 158);
+            this.groupBox1.Size = new System.Drawing.Size(285, 158);
             this.groupBox1.TabIndex = 86;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Operaciones masivas";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(147, 61);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(69, 20);
+            this.numericUpDown1.TabIndex = 83;
+            // 
+            // chkIncludeImageInSavedData
+            // 
+            this.chkIncludeImageInSavedData.AutoSize = true;
+            this.chkIncludeImageInSavedData.Checked = true;
+            this.chkIncludeImageInSavedData.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkIncludeImageInSavedData.Enabled = false;
+            this.chkIncludeImageInSavedData.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkIncludeImageInSavedData.Location = new System.Drawing.Point(11, 61);
+            this.chkIncludeImageInSavedData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chkIncludeImageInSavedData.Name = "chkIncludeImageInSavedData";
+            this.chkIncludeImageInSavedData.Size = new System.Drawing.Size(112, 21);
+            this.chkIncludeImageInSavedData.TabIndex = 1;
+            this.chkIncludeImageInSavedData.Text = "Include Image";
+            this.chkIncludeImageInSavedData.UseVisualStyleBackColor = true;
             // 
             // lblEncodingTime
             // 
@@ -373,12 +398,28 @@
             this.lblEncodingTime.TabIndex = 82;
             this.lblEncodingTime.Text = "0.00";
             // 
+            // btnExportarMasivo
+            // 
+            this.btnExportarMasivo.IconChar = FontAwesome.Sharp.IconChar.FileCsv;
+            this.btnExportarMasivo.IconColor = System.Drawing.Color.Black;
+            this.btnExportarMasivo.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnExportarMasivo.IconSize = 25;
+            this.btnExportarMasivo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExportarMasivo.Location = new System.Drawing.Point(8, 24);
+            this.btnExportarMasivo.Name = "btnExportarMasivo";
+            this.btnExportarMasivo.Size = new System.Drawing.Size(251, 30);
+            this.btnExportarMasivo.TabIndex = 0;
+            this.btnExportarMasivo.Text = "Generar Códigos Masivos";
+            this.btnExportarMasivo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnExportarMasivo.UseVisualStyleBackColor = true;
+            this.btnExportarMasivo.Click += new System.EventHandler(this.btnExportarMasivo_Click);
+            // 
             // progressBar1
             // 
             this.progressBar1.Location = new System.Drawing.Point(7, 90);
             this.progressBar1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(254, 19);
+            this.progressBar1.Size = new System.Drawing.Size(253, 19);
             this.progressBar1.TabIndex = 79;
             // 
             // lblAverageGenerationTime
@@ -393,11 +434,11 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(10, 113);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(206, 17);
+            this.label14.Size = new System.Drawing.Size(187, 16);
             this.label14.TabIndex = 80;
             this.label14.Text = "Tiempo promedio de generación:";
             // 
@@ -409,7 +450,7 @@
             this.txtEncoded.Name = "txtEncoded";
             this.txtEncoded.ReadOnly = true;
             this.txtEncoded.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtEncoded.Size = new System.Drawing.Size(268, 125);
+            this.txtEncoded.Size = new System.Drawing.Size(285, 125);
             this.txtEncoded.TabIndex = 63;
             this.txtEncoded.TabStop = false;
             // 
@@ -417,7 +458,7 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.iconButton6, 0, 6);
+            this.tableLayoutPanel2.Controls.Add(this.btnPrint, 0, 6);
             this.tableLayoutPanel2.Controls.Add(this.btnGuardaImagen, 0, 5);
             this.tableLayoutPanel2.Controls.Add(this.LoadXML, 0, 4);
             this.tableLayoutPanel2.Controls.Add(this.btnLoadJSON, 0, 3);
@@ -425,7 +466,7 @@
             this.tableLayoutPanel2.Controls.Add(this.btnSaveJSON, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.btnEncode, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(812, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(885, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 7;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
@@ -436,25 +477,26 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(142, 307);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(173, 305);
             this.tableLayoutPanel2.TabIndex = 20;
             // 
-            // iconButton6
+            // btnPrint
             // 
-            this.iconButton6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.iconButton6.IconChar = FontAwesome.Sharp.IconChar.Print;
-            this.iconButton6.IconColor = System.Drawing.Color.Black;
-            this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton6.IconSize = 25;
-            this.iconButton6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton6.Location = new System.Drawing.Point(3, 261);
-            this.iconButton6.Name = "iconButton6";
-            this.iconButton6.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.iconButton6.Size = new System.Drawing.Size(136, 43);
-            this.iconButton6.TabIndex = 25;
-            this.iconButton6.Text = "Imprimir";
-            this.iconButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton6.UseVisualStyleBackColor = true;
+            this.btnPrint.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnPrint.IconChar = FontAwesome.Sharp.IconChar.Print;
+            this.btnPrint.IconColor = System.Drawing.Color.Black;
+            this.btnPrint.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPrint.IconSize = 25;
+            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrint.Location = new System.Drawing.Point(3, 261);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnPrint.Size = new System.Drawing.Size(167, 41);
+            this.btnPrint.TabIndex = 25;
+            this.btnPrint.Text = "Imprimir";
+            this.btnPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnGuardaImagen
             // 
@@ -467,7 +509,7 @@
             this.btnGuardaImagen.Location = new System.Drawing.Point(3, 218);
             this.btnGuardaImagen.Name = "btnGuardaImagen";
             this.btnGuardaImagen.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.btnGuardaImagen.Size = new System.Drawing.Size(136, 37);
+            this.btnGuardaImagen.Size = new System.Drawing.Size(167, 37);
             this.btnGuardaImagen.TabIndex = 24;
             this.btnGuardaImagen.Text = "Guarda Imagen";
             this.btnGuardaImagen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -477,6 +519,7 @@
             // LoadXML
             // 
             this.LoadXML.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LoadXML.Enabled = false;
             this.LoadXML.IconChar = FontAwesome.Sharp.IconChar.FileCode;
             this.LoadXML.IconColor = System.Drawing.Color.Black;
             this.LoadXML.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -485,7 +528,7 @@
             this.LoadXML.Location = new System.Drawing.Point(3, 175);
             this.LoadXML.Name = "LoadXML";
             this.LoadXML.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.LoadXML.Size = new System.Drawing.Size(136, 37);
+            this.LoadXML.Size = new System.Drawing.Size(167, 37);
             this.LoadXML.TabIndex = 23;
             this.LoadXML.Text = "Abrir XML";
             this.LoadXML.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -495,6 +538,7 @@
             // btnLoadJSON
             // 
             this.btnLoadJSON.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnLoadJSON.Enabled = false;
             this.btnLoadJSON.IconChar = FontAwesome.Sharp.IconChar.Js;
             this.btnLoadJSON.IconColor = System.Drawing.Color.Black;
             this.btnLoadJSON.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -503,7 +547,7 @@
             this.btnLoadJSON.Location = new System.Drawing.Point(3, 132);
             this.btnLoadJSON.Name = "btnLoadJSON";
             this.btnLoadJSON.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.btnLoadJSON.Size = new System.Drawing.Size(136, 37);
+            this.btnLoadJSON.Size = new System.Drawing.Size(167, 37);
             this.btnLoadJSON.TabIndex = 22;
             this.btnLoadJSON.Text = "Abrir JSON";
             this.btnLoadJSON.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -513,6 +557,7 @@
             // btnSaveXML
             // 
             this.btnSaveXML.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSaveXML.Enabled = false;
             this.btnSaveXML.IconChar = FontAwesome.Sharp.IconChar.FileCode;
             this.btnSaveXML.IconColor = System.Drawing.Color.Black;
             this.btnSaveXML.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -521,7 +566,7 @@
             this.btnSaveXML.Location = new System.Drawing.Point(3, 89);
             this.btnSaveXML.Name = "btnSaveXML";
             this.btnSaveXML.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.btnSaveXML.Size = new System.Drawing.Size(136, 37);
+            this.btnSaveXML.Size = new System.Drawing.Size(167, 37);
             this.btnSaveXML.TabIndex = 21;
             this.btnSaveXML.Text = "Guarda XML";
             this.btnSaveXML.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -531,6 +576,7 @@
             // btnSaveJSON
             // 
             this.btnSaveJSON.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSaveJSON.Enabled = false;
             this.btnSaveJSON.IconChar = FontAwesome.Sharp.IconChar.Js;
             this.btnSaveJSON.IconColor = System.Drawing.Color.Black;
             this.btnSaveJSON.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -539,7 +585,7 @@
             this.btnSaveJSON.Location = new System.Drawing.Point(3, 46);
             this.btnSaveJSON.Name = "btnSaveJSON";
             this.btnSaveJSON.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.btnSaveJSON.Size = new System.Drawing.Size(136, 37);
+            this.btnSaveJSON.Size = new System.Drawing.Size(167, 37);
             this.btnSaveJSON.TabIndex = 20;
             this.btnSaveJSON.Text = "Guarda JSON";
             this.btnSaveJSON.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -557,7 +603,7 @@
             this.btnEncode.Location = new System.Drawing.Point(3, 3);
             this.btnEncode.Name = "btnEncode";
             this.btnEncode.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.btnEncode.Size = new System.Drawing.Size(136, 37);
+            this.btnEncode.Size = new System.Drawing.Size(167, 37);
             this.btnEncode.TabIndex = 19;
             this.btnEncode.Text = "Generar Código";
             this.btnEncode.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -576,39 +622,10 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(255, 307);
+            this.groupBox2.Size = new System.Drawing.Size(283, 305);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Código";
-            // 
-            // txtData
-            // 
-            this.txtData.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtData.Location = new System.Drawing.Point(10, 42);
-            this.txtData.Name = "txtData";
-            this.txtData.Size = new System.Drawing.Size(232, 22);
-            this.txtData.TabIndex = 83;
-            this.txtData.Text = "038000356216";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(13, 24);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(111, 17);
-            this.label4.TabIndex = 84;
-            this.label4.Text = "Código de barras";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(13, 124);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(72, 17);
-            this.label8.TabIndex = 82;
-            this.label8.Text = "Alineación";
             // 
             // cbBarcodeAlign
             // 
@@ -624,15 +641,57 @@
             this.cbBarcodeAlign.Size = new System.Drawing.Size(230, 25);
             this.cbBarcodeAlign.TabIndex = 81;
             // 
-            // label3
+            // label8
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(13, 71);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 17);
-            this.label3.TabIndex = 80;
-            this.label3.Text = "Codificación";
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(13, 124);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(72, 17);
+            this.label8.TabIndex = 82;
+            this.label8.Text = "Alineación";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.textBox1);
+            this.groupBox7.Controls.Add(this.label11);
+            this.groupBox7.Controls.Add(this.chkGenerateLabel);
+            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox7.Location = new System.Drawing.Point(3, 174);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(277, 128);
+            this.groupBox7.TabIndex = 79;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Texto Alternativo";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(10, 84);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(229, 22);
+            this.textBox1.TabIndex = 54;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(7, 63);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(137, 17);
+            this.label11.TabIndex = 55;
+            this.label11.Text = "Nombre del producto";
+            // 
+            // chkGenerateLabel
+            // 
+            this.chkGenerateLabel.AutoSize = true;
+            this.chkGenerateLabel.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkGenerateLabel.Location = new System.Drawing.Point(8, 28);
+            this.chkGenerateLabel.Name = "chkGenerateLabel";
+            this.chkGenerateLabel.Size = new System.Drawing.Size(171, 21);
+            this.chkGenerateLabel.TabIndex = 40;
+            this.chkGenerateLabel.Text = "Agregar texto al código";
+            this.chkGenerateLabel.UseVisualStyleBackColor = true;
             // 
             // cbEncodeType
             // 
@@ -679,101 +738,43 @@
             this.cbEncodeType.Size = new System.Drawing.Size(229, 25);
             this.cbEncodeType.TabIndex = 79;
             // 
-            // groupBox7
+            // txtData
             // 
-            this.groupBox7.Controls.Add(this.textBox1);
-            this.groupBox7.Controls.Add(this.label11);
-            this.groupBox7.Controls.Add(this.chkGenerateLabel);
-            this.groupBox7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox7.Location = new System.Drawing.Point(3, 176);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(249, 128);
-            this.groupBox7.TabIndex = 79;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Texto Alternativo";
+            this.txtData.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtData.Location = new System.Drawing.Point(10, 42);
+            this.txtData.Name = "txtData";
+            this.txtData.Size = new System.Drawing.Size(232, 22);
+            this.txtData.TabIndex = 83;
+            this.txtData.Text = "038000356216";
             // 
-            // textBoxAspectRatio
+            // label3
             // 
-            this.textBoxAspectRatio.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxAspectRatio.Location = new System.Drawing.Point(129, 118);
-            this.textBoxAspectRatio.Name = "textBoxAspectRatio";
-            this.textBoxAspectRatio.Size = new System.Drawing.Size(112, 22);
-            this.textBoxAspectRatio.TabIndex = 55;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(13, 71);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(85, 17);
+            this.label3.TabIndex = 80;
+            this.label3.Text = "Codificación";
             // 
-            // textBoxBarWidth
+            // label4
             // 
-            this.textBoxBarWidth.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxBarWidth.Location = new System.Drawing.Point(12, 118);
-            this.textBoxBarWidth.Name = "textBoxBarWidth";
-            this.textBoxBarWidth.Size = new System.Drawing.Size(111, 22);
-            this.textBoxBarWidth.TabIndex = 54;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(134, 102);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(82, 17);
-            this.label13.TabIndex = 53;
-            this.label13.Text = "AspectRatio";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(14, 104);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(63, 17);
-            this.label12.TabIndex = 52;
-            this.label12.Text = "BarWidth";
-            // 
-            // txtWidth
-            // 
-            this.txtWidth.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtWidth.Location = new System.Drawing.Point(12, 65);
-            this.txtWidth.Name = "txtWidth";
-            this.txtWidth.Size = new System.Drawing.Size(111, 22);
-            this.txtWidth.TabIndex = 43;
-            this.txtWidth.Text = "300";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(14, 47);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 17);
-            this.label7.TabIndex = 41;
-            this.label7.Text = "Width";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(126, 47);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 17);
-            this.label6.TabIndex = 42;
-            this.label6.Text = "Height";
-            // 
-            // txtHeight
-            // 
-            this.txtHeight.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHeight.Location = new System.Drawing.Point(129, 65);
-            this.txtHeight.Name = "txtHeight";
-            this.txtHeight.Size = new System.Drawing.Size(112, 22);
-            this.txtHeight.TabIndex = 44;
-            this.txtHeight.Text = "100";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(13, 24);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(111, 17);
+            this.label4.TabIndex = 84;
+            this.label4.Text = "Código de barras";
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.groupBox10);
             this.groupBox4.Controls.Add(this.groupBox9);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Location = new System.Drawing.Point(264, 3);
+            this.groupBox4.Location = new System.Drawing.Point(292, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(262, 307);
+            this.groupBox4.Size = new System.Drawing.Size(290, 305);
             this.groupBox4.TabIndex = 21;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Configuración de Colores";
@@ -791,39 +792,86 @@
             this.groupBox10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox10.Location = new System.Drawing.Point(3, 111);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(256, 193);
+            this.groupBox10.Size = new System.Drawing.Size(284, 191);
             this.groupBox10.TabIndex = 80;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "Configurar tamaño";
             // 
-            // textBox1
+            // label13
             // 
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(10, 79);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(233, 22);
-            this.textBox1.TabIndex = 54;
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(134, 102);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(51, 16);
+            this.label13.TabIndex = 53;
+            this.label13.Text = "Aspecto";
             // 
-            // chkGenerateLabel
+            // textBoxAspectRatio
             // 
-            this.chkGenerateLabel.AutoSize = true;
-            this.chkGenerateLabel.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkGenerateLabel.Location = new System.Drawing.Point(8, 28);
-            this.chkGenerateLabel.Name = "chkGenerateLabel";
-            this.chkGenerateLabel.Size = new System.Drawing.Size(244, 21);
-            this.chkGenerateLabel.TabIndex = 40;
-            this.chkGenerateLabel.Text = "Agregar el texto al codigo de barras";
-            this.chkGenerateLabel.UseVisualStyleBackColor = true;
+            this.textBoxAspectRatio.Enabled = false;
+            this.textBoxAspectRatio.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxAspectRatio.Location = new System.Drawing.Point(129, 125);
+            this.textBoxAspectRatio.Name = "textBoxAspectRatio";
+            this.textBoxAspectRatio.Size = new System.Drawing.Size(112, 22);
+            this.textBoxAspectRatio.TabIndex = 55;
             // 
-            // label11
+            // label12
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(7, 63);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(110, 17);
-            this.label11.TabIndex = 55;
-            this.label11.Text = "Texto alternativo";
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(14, 104);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(93, 16);
+            this.label12.TabIndex = 52;
+            this.label12.Text = "Ancho de barra";
+            // 
+            // textBoxBarWidth
+            // 
+            this.textBoxBarWidth.Enabled = false;
+            this.textBoxBarWidth.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxBarWidth.Location = new System.Drawing.Point(12, 125);
+            this.textBoxBarWidth.Name = "textBoxBarWidth";
+            this.textBoxBarWidth.Size = new System.Drawing.Size(111, 22);
+            this.textBoxBarWidth.TabIndex = 54;
+            // 
+            // txtHeight
+            // 
+            this.txtHeight.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHeight.Location = new System.Drawing.Point(129, 65);
+            this.txtHeight.Name = "txtHeight";
+            this.txtHeight.Size = new System.Drawing.Size(112, 22);
+            this.txtHeight.TabIndex = 44;
+            this.txtHeight.Text = "100";
+            // 
+            // txtWidth
+            // 
+            this.txtWidth.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtWidth.Location = new System.Drawing.Point(12, 65);
+            this.txtWidth.Name = "txtWidth";
+            this.txtWidth.Size = new System.Drawing.Size(111, 22);
+            this.txtWidth.TabIndex = 43;
+            this.txtWidth.Text = "300";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(126, 47);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 17);
+            this.label6.TabIndex = 42;
+            this.label6.Text = "Height";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(14, 47);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(44, 17);
+            this.label7.TabIndex = 41;
+            this.label7.Text = "Width";
             // 
             // groupBox9
             // 
@@ -834,7 +882,7 @@
             this.groupBox9.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox9.Location = new System.Drawing.Point(3, 16);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(256, 95);
+            this.groupBox9.Size = new System.Drawing.Size(284, 95);
             this.groupBox9.TabIndex = 79;
             this.groupBox9.TabStop = false;
             // 
@@ -882,38 +930,11 @@
             this.label2.TabIndex = 70;
             this.label2.Text = "Color de fondo";
             // 
-            // chkIncludeImageInSavedData
-            // 
-            this.chkIncludeImageInSavedData.AutoSize = true;
-            this.chkIncludeImageInSavedData.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkIncludeImageInSavedData.Location = new System.Drawing.Point(11, 61);
-            this.chkIncludeImageInSavedData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.chkIncludeImageInSavedData.Name = "chkIncludeImageInSavedData";
-            this.chkIncludeImageInSavedData.Size = new System.Drawing.Size(112, 21);
-            this.chkIncludeImageInSavedData.TabIndex = 1;
-            this.chkIncludeImageInSavedData.Text = "Include Image";
-            this.chkIncludeImageInSavedData.UseVisualStyleBackColor = true;
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.FileCsv;
-            this.iconButton1.IconColor = System.Drawing.Color.Black;
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton1.IconSize = 25;
-            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iconButton1.Location = new System.Drawing.Point(8, 24);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(254, 30);
-            this.iconButton1.TabIndex = 0;
-            this.iconButton1.Text = "Generar Códigos Masivos";
-            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.iconButton1.UseVisualStyleBackColor = true;
-            // 
             // Form_Barras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(963, 709);
+            this.ClientSize = new System.Drawing.Size(1067, 704);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.stsInformation);
             this.Controls.Add(this.menuStrip1);
@@ -935,6 +956,7 @@
             this.groupBox5.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -983,7 +1005,7 @@
         private FontAwesome.Sharp.IconButton btnEncode;
         private FontAwesome.Sharp.IconButton btnSaveJSON;
         private FontAwesome.Sharp.IconButton btnSaveXML;
-        private FontAwesome.Sharp.IconButton iconButton6;
+        private FontAwesome.Sharp.IconButton btnPrint;
         private FontAwesome.Sharp.IconButton btnGuardaImagen;
         private FontAwesome.Sharp.IconButton LoadXML;
         private FontAwesome.Sharp.IconButton btnLoadJSON;
@@ -1017,10 +1039,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox chkIncludeImageInSavedData;
-        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton btnExportarMasivo;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.CheckBox chkGenerateLabel;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }
