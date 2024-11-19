@@ -1,8 +1,5 @@
 ﻿using CodeGenPro.Presentation.Forms;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CodeGenPro.Presentation
@@ -17,8 +14,15 @@ namespace CodeGenPro.Presentation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            // Mostrar el Splash Screen
+            using (SplashScreen splash = new SplashScreen())
+            {
+                splash.ShowDialog(); // Mostrar el SplashScreen como modal
+            }
+
+            // Iniciar el formulario principal después del SplashScreen
             Application.Run(new Form_Barras());
-            //Application.Run(new Form1());
         }
     }
 }

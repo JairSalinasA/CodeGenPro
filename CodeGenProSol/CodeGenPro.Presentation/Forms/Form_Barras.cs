@@ -298,7 +298,13 @@ namespace CodeGenPro.Presentation.Forms
         private void GenerateBarcode()
         {
             errorProvider1.Clear();
-
+            // Validar si txtData tiene contenido
+            if (string.IsNullOrWhiteSpace(txtData.Text.Trim()))
+            {
+                MessageBox.Show("El campo de datos no puede estar vacío. Por favor, ingrese un código.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtData.Focus();
+                return;
+            }
             var w = Convert.ToInt32(txtWidth.Text.Trim());
             var h = Convert.ToInt32(txtHeight.Text.Trim());
             _b.Alignment = AlignmentPositions.Center;
@@ -589,10 +595,34 @@ namespace CodeGenPro.Presentation.Forms
             };
             printPreview.ShowDialog();
         }
+         
+        private void LimpiarControles(Control parent)
+        {
+            foreach (Control ctrl in parent.Controls)
+            {
+                
+                if (ctrl.HasChildren)
+                {
+                    LimpiarControles(ctrl); // Llamada recursiva para limpiar controles anidados
+                }
+            }
+        }
 
+        private void btnLimpiar_Click_1(object sender, EventArgs e)
+        {
+            // Limpiar todos los TextBox
+            foreach (Control ctrl in this.Controls)
+            {
+                
+                // Limpia el PictureBox asociado con cc
+                if (cc != null && cc.BackgroundImage != null)
+                {
+                    cc.BackgroundImage = null; // Elimina la imagen de fondo
+                }
+            }
 
-
-
-
+            // Si tienes controles anidados, por ejemplo en un Panel o GroupBox, deberás limpiar los controles dentro de ellos también.
+            LimpiarControles(this);
+        }
     }
 }
